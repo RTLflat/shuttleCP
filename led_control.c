@@ -1,4 +1,5 @@
 
+#if GPIO_SUPPORT
 #include "led_control.h"
 #include <wiringPi.h>
 
@@ -17,7 +18,6 @@ void initialize_led_states( LED_STATES *states ) {
     states->motion_speed_4  = 0;
 
     // also initilize the LED pins to be output
-    wiringPiSetup();
     pinMode( LED_ONLINE,              OUTPUT );
     pinMode( LED_WEBSOCKET_CONNECTED, OUTPUT );
     pinMode( LED_X_AXIS_ACTIVE,       OUTPUT );
@@ -63,4 +63,5 @@ void drive_leds( LED_STATES *states ) {
     return;
 }
 
+#endif
 
